@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abriendo RegistraTE...</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 500px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .spinner {
+            border: 4px solid rgba(102, 126, 234, 0.1);
+            border-radius: 50%;
+            border-top: 4px solid #667eea;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin: 30px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .info {
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: left;
+        }
+        .info strong {
+            color: #667eea;
+        }
+        .manual-link {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff3cd;
+            border-radius: 10px;
+            display: none;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        .link-text {
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+            color: #667eea;
+            margin-top: 10px;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏃‍♂️ Abriendo RegistraTE...</h1>
+        <div class="spinner"></div>
+        
+        <div class="info">
+            <strong>¿Qué está pasando?</strong><br>
+            Estamos intentando abrir la app RegistraTE automáticamente.<br><br>
+            <strong>Si no se abre en 3 segundos:</strong><br>
+            Toca el botón de abajo manualmente.
+        </div>
+        
+        <div class="manual-link" id="manualLink">
+            <p>⚠️ La app no se abrió automáticamente</p>
+            <a href="registrate://competition/699dcf7ae5f352a02d76e6f2" class="btn" id="manualBtn">
+                📱 Tocar aquí para abrir
+            </a>
+            <div class="link-text">
+                registrate://competition/699dcf7ae5f352a02d76e6f2
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Intentar abrir inmediatamente
+        window.location.href = 'registrate://competition/699dcf7ae5f352a02d76e6f2';
+        
+        // Si después de 3 segundos seguimos aquí, mostrar opción manual
+        setTimeout(() => {
+            document.getElementById('manualLink').style.display = 'block';
+            document.querySelector('.spinner').style.display = 'none';
+        }, 3000);
+        
+        // También intentar con timeout
+        setTimeout(() => {
+            window.location.href = 'registrate://competition/699dcf7ae5f352a02d76e6f2';
+        }, 500);
+    </script>
+</body>
+</html>
